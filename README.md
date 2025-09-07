@@ -34,7 +34,8 @@ https://liascript.github.io/course/?https://raw.githubusercontent.com/AndreaInfU
 
 ## Scotty
 
-- Scotty é uma biblioteca em Haskell para construção de backend web
+- Scotty é um framework em Haskell para desenvolvimento backend de aplicações web
+- Comparável com Flask (Python) ou Express.js (JavaScript/Node.js)
 - Internamente, contém um servidor HTTP
 
 
@@ -118,4 +119,21 @@ Opção 2: Use o programa `curl` no terminal:
 curl http://localhost:3000/advice
 ```
 
+```
+curl --ipv4 -X POST  http://127.0.0.1:3000/users      -H "Content-Type: application/json"      -d '{"userId":1,"name":"Alice","email":"alice@example.com"}'
+curl --ipv4 -X POST  http://127.0.0.1:3000/users \\   -H "Content-Type: application/json"      -d '{"userId":1,"name":"Alice","email":"alice@example.com"}'
+curl --ipv4 http://127.0.0.1:3000/users
+
+curl http://localhost:3000/users
+
+curl http://localhost:3000/users \
+     -H "Content-Type: application/json" \
+     -d '{"userId":4,"name":"Fourth","email":"alice@example.com"}'
+
+No computador local, depois de configurar a visibilidade da porta para Public
+
+curl https://effective-journey-5vvrvjp95hp4p5-3000.app.github.dev/users
+
+
+```
 
