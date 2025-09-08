@@ -382,6 +382,17 @@ main = do
 
 ## Desenvolvimento
 
+### Codespaces
+
+- Todos os códigos deste repositório são executáveis no Codespaces!
+- Para isso:
+
+  - Faça login no GitHub
+  - Acesse https://github.com/elc117/demo-scotty-codespace-2025b
+  - Clique no botão Code -> aba Codespaces -> Create codespace on main
+  - Aguarde a criação... (leva algum tempo)
+
+
 ### Instalação
 
 Instalação de dependências localmente ou no Codespaces, sem criação de projeto:
