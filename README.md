@@ -389,10 +389,17 @@ Instalação de dependências localmente ou no Codespaces, sem criação de proj
 ```
 cabal update
 cabal install --lib scotty wai-extra random text
-cabal install --lib aeson sqlite-simple http-types
+cabal install --lib aeson sqlite-simple http-types warp
 ```
 
-Outra opção é usar a ferramenta Stack para criar um projeto que descreve as dependências (desnecessário para executar os códigos de exemplo localmente ou Codespaces).
+Observações:
+
+- No Codespaces, essas dependências podem ser adicionadas em [.devcontainer/devcontainer.json](.devcontainer/devcontainer.json), mas isso aumentaria o tempo de criação do container
+- Opcional para futuros projetos: usar a ferramenta Stack para criar um projeto que descreve as dependências
+
+  - Para manter os códigos de exemplo "minimalistas", não foi criado um arquivo de projeto (basta o arquivo .hs e as dependências acima instaladas)
+
+  - para criar um projeto que descreve as dependências (desnecessário para executar os códigos de exemplo localmente ou Codespaces).
 
 
 ### Compilação e execução
@@ -426,19 +433,25 @@ ghc -threaded -o mywebapp helloScotty.hs
 
 - Certifique-se de que o programa com Scotty esteja rodando antes de fazer uma requisição (verifique os logs no terminal)
 
-- Para requisições GET, abra o preview/navegador via Codespaces e digite a rota na URL 
+- Para requisições GET, clique em "Open in Browser" no popup que aparece quando o programa é executado
+
+  - Opção: Clique no menu PORTS e clique na URL mostrada em Forwarded Address
+  - Depois de abrir o navegador, digite a rota no final da URL 
 
 - Para controlar melhor as requisições, use o comando `curl` no terminal (abra um segundo terminal, pois o primeiro estará dedicado a executar e mostrar os logs do servidor)
 
 - Exemplos de requisições (conforme o exemplo correspondente):
 
-  ``` bash
-  curl http://localhost:3000/hello
-
-  curl http://localhost:3000/users \
-      -H "Content-Type: application/json" \
-      -d '{"name":"Fulano","email":"fulano@email.com"}'
-  ```
+  - Exemplo: Hello
+    ``` bash
+    curl http://localhost:3000/hello
+    ```
+  - Exemplo: SQLite
+    ```
+    curl http://localhost:3000/users \
+        -H "Content-Type: application/json" \
+        -d '{"name":"Fulano","email":"fulano@email.com"}'
+    ```
 
 - No exemplo com SQLite, há scripts bash que chamam curl com parâmetros de exemplo (assim você não precisa copiar e colar)
 
@@ -447,7 +460,7 @@ ghc -threaded -o mywebapp helloScotty.hs
   bash test-post-user.sh
   ```
 
-- Caso queira enviar requisições a partir do computador local, configure a visibilidade da porta para Public. Isso permitirá acessar o serviço via uma URL na forma `https://<nome-gerado-pelo-github>-3000.app.github.dev/users`, como no exemplo abaixo:
+- Caso queira enviar requisições a partir do computador local, configure a visibilidade da porta para Public (PORTS -> Visibility). Isso permitirá acessar o serviço via uma URL na forma `https://<nome-gerado-pelo-github>-3000.app.github.dev/users`, como no exemplo abaixo:
 
   ```
    curl https://effective-journey-5vvrvjp95hp4p5-3000.app.github.dev/users
@@ -466,3 +479,6 @@ ghc -threaded -o mywebapp helloScotty.hs
 
 
 
+## Links
+
+- [Build a Haskell Server with Scotty framework](https://www.youtube.com/watch?v=psTTKGj9G6Y)
