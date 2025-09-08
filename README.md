@@ -410,7 +410,7 @@ Observações:
 
   - Para manter os códigos de exemplo "minimalistas", não foi criado um arquivo de projeto (basta o arquivo .hs e as dependências acima instaladas)
 
-  - para criar um projeto que descreve as dependências (desnecessário para executar os códigos de exemplo localmente ou Codespaces).
+  - Criar um projeto é desnecessário para executar os códigos de exemplo (localmente ou Codespaces).
 
 
 ### Compilação e execução
