@@ -21,7 +21,7 @@ advices =
 getRandomAdvice :: IO Text
 getRandomAdvice = do
     index <- randomRIO (0, length advices - 1)
-    -- Illustrate conversions: Text <-> String
+    -- Illustrate conversion: String to Text
     -- For a better solution, see https://hackage.haskell.org/package/json
     let advice = advices !! index
         responseString = "{\"advice\": \"" ++ unpack advice ++ "\"}"
